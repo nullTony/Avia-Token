@@ -1,32 +1,98 @@
 header {
     position: fixed;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
     width: 100%;
+    max-width: 1440px;
     z-index: 1000;
-    transition: var(--transition);
-    padding: 20px 10px;
+    transition: all 0.4s ease;
+    padding: 20px 70px;
+    color: white;
 
     nav {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        gap: 10px;
 
-        > span {
-            font-size: 30px;
-            color: #00AEEF;
-            font-weight: 700;
+        .logo_box {
+            h1 {
+                font-size: 30px;
+                font-weight: 700;
+            }
+            a {
+                font-size: 14px;
+                color: rgba(255, 255, 255, 0.8);
+                text-decoration: none;
+            }
         }
 
         ul {
             display: flex;
-            gap: 30px;
+            gap: 40px;
             list-style: none;
 
             li {
-                text-transform: capitalize;
+                text-transform: uppercase;
+                font-size: 14px;
+                letter-spacing: 1px;
+                font-weight: 600;
+                cursor: pointer;
+                border-bottom: 2px solid transparent;
+                transition: 0.3s;
+
+                &:hover {
+                    border-color: white;
+                }
             }
         }
+
+        .social_group {
+            display: flex;
+            gap: 12px;
+
+            a {
+                color: white;
+                text-decoration: none;
+                span {
+                    display: flex;
+                    padding: 10px;
+                    background: rgba(255, 255, 255, 0.1);
+                    backdrop-filter: blur(10px);
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                    border-radius: 50%;
+                    cursor: pointer;
+                    transition: 0.3s;
+
+                    &:hover {
+                        background: rgba(255, 255, 255, 0.25);
+                        border-color: rgba(255, 255, 255, 0.5);
+                        transform: translateY(-3px);
+                        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+
+                        svg {
+                            transform: scale(1.1);
+                        }
+                        }
+
+                        &:active {
+                            transform: translateY(0);
+                        }
+                    
+                    svg { width: 20px; height: 20px; }
+                }
+            }
+        }
+    }
+
+    &.sticky {
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+        padding: 12px 70px;
+        color: #1a1a1a;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+
+        .social_group span { border-color: rgba(0,0,0,0.1); color: black; }
+        ul li:hover { border-color: black; }
     }
 }
