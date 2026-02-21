@@ -23,8 +23,51 @@ body {
     display: flex;
     flex-direction: column;
     position: relative;
+    gap: 20px;
 
     @media (min-width: 1440px) {
-        max-width: 1440px;
+        min-width: 1440px;
     }
+
+    .social_sticky {
+        transition: all 0.3s ease-in-out;
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        display: flex; 
+        flex-direction: column;
+        gap: 20px;
+
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+        pointer-events: none;
+
+        a {
+            text-decoration: none;
+
+            button {
+                background-color: #3f5baa;
+                padding: 10px;
+                border: none;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+
+                > svg {
+                    color: white;
+                }
+            }
+        }
+
+        &.sticky {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+    }
+
 }
