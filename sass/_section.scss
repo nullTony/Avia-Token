@@ -148,8 +148,6 @@
         }
     }
 }
-
-<<<<<<< HEAD
 .map{
     display: flex;
     width: 100%;
@@ -181,8 +179,10 @@
         > div:hover{
             background-color: rgba(0, 0, 0, 0.744);
             color: white;
+        }
+    }
+}
 
-=======
 .feature {
     display: flex;
     gap: 30px;
@@ -254,7 +254,6 @@
 
         @media (min-width:1024px) {
             grid-template-columns: repeat(4, 1fr);
->>>>>>> 92b13aec57e9f090a7895c93a97e2be7a5c229d8
         }
     }
 }
