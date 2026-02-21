@@ -1,44 +1,149 @@
 .hero_section {
     width: 100%;
     height: 100vh;
+    height: auto;
     background: linear-gradient(180deg, #3b82f6 0%, #60a5fa 40%, #93c5fd 100%);
-    position: relative;
-    overflow: hidden;
     display: flex;
-    align-items: center;
-    padding: 0 70px;
+    flex-direction: column;
 
-    .hero_content {
-        z-index: 2;
-        width: 45%;
-        h2 {
-            font-size: 56px;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            color: white;
+    @media (min-width: 1440px) {
+        height: 100vh;
+    }
+
+    .center {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 120px 20px;
+        position: relative;
+        text-align: center;
+
+        @media (min-width: 1440px) {
+            flex-direction: row;
+            padding: 0 70px;
+            text-align: left;
+            align-items: center;
         }
 
-        p {
-            font-size: 20px;
-            color: rgba(255, 255, 255, 0.9);
-            word-spacing: 5px;
+        .hero_content {
+            z-index: 2;
+            width: 100%;
+
+            @media (min-width: 1440px) {
+                width: 45%;
+            }
+
+            h2 {
+                font-size: 32px;
+                line-height: 1.2;
+                margin-bottom: 15px;
+                color: white;
+
+                @media (min-width: 1440px) {
+                    font-size: 56px;
+                    line-height: 1.1;
+                    margin-bottom: 20px;
+                }
+            }
+
+            p {
+                font-size: 16px;
+                color: rgba(255, 255, 255, 0.9);
+                word-spacing: normal;
+
+                @media (min-width: 1440px) {
+                    font-size: 20px;
+                    word-spacing: 5px;
+                }
+            }
+        }
+
+        .airplane_box {
+            position: relative;
+            width: 70%;
+            margin-top: 30px;
+            pointer-events: none;
+            z-index: 1;
+
+            @media (min-width: 1440px) {
+                position: absolute;
+                right: -100px;
+                top: 50%;
+                transform: translateY(-40%);
+                width: 65%;
+                margin-top: 0;
+            }
+
+            img {
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+            }
         }
     }
 
-    .airplane_box {
-        position: absolute;
-        right: -100px;
-        top: 50%;
-        transform: translateY(-40%);
-        width: 65%;
-        height: auto;
-        pointer-events: none;
-        z-index: 1;
+    .bottom {
+        background-color: #eef7fc;
+        width: 100%;
+        padding: 40px 20px;
 
-        img {
-            width: 100%;
-            height: auto;
-            object-fit: contain;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        align-items: stretch;
+
+        @media (min-width: 1440px) {
+            padding: 40px 70px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            align-items: center;
+        }
+
+        >div {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            color: #3f5baa;
+
+            >span {
+                font-size: 28px;
+                font-weight: 700;
+                line-height: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-width: 45px;
+
+                @media (min-width: 1440px) {
+                    font-size: 32px;
+                    min-width: 50px;
+                }
+            }
+
+            div {
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+
+                h2 {
+                    font-size: 16px;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    letter-spacing: 0.5px;
+
+                    @media (min-width: 1440px) {
+                        font-size: 18px;
+                    }
+                }
+
+                p {
+                    font-size: 14px;
+                    color: #555;
+                    line-height: 1.4;
+                }
+            }
         }
     }
 }
