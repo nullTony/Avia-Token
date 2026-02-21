@@ -1,0 +1,86 @@
+footer{
+    display: flex;
+    margin-top: 50px;
+    justify-content: space-between;
+    background-color: rgb(16, 20, 43);
+    color: white;
+    box-sizing: border-box;
+    padding: 30px 80px;
+    .footerMainBox{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 30%;
+        p{
+            font-size: 14px;
+        }
+        > div{
+            display: flex;
+            gap: 8px;
+
+            @media (min-width: 1440px) {
+                gap: 12px;
+            }
+
+            a {
+                color: white;
+                text-decoration: none;
+
+                span {
+                    display: flex;
+                    padding: 8px; 
+                    background: rgba(255, 255, 255, 0.1);
+                    backdrop-filter: blur(10px);
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                    border-radius: 50%;
+                    cursor: pointer;
+                    transition: 0.3s;
+
+                    @media (min-width: 1440px) {
+                        padding: 10px;
+                    }
+
+                    &:hover {
+                        background: rgba(255, 255, 255, 0.25);
+                        border-color: rgba(255, 255, 255, 0.5);
+                        transform: translateY(-3px);
+                        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+
+                        svg {
+                            transform: scale(1.1);
+                        }
+                    }
+
+                    &:active {
+                        transform: translateY(0);
+                    }
+
+                    svg {
+                        width: 18px;
+                        height: 18px;
+                    }
+                }
+            }
+        }
+    }
+    > div{
+        width: 15%;
+        > ul{
+            list-style: none;
+            line-height: 50px;
+            li{
+                color: darkgray;
+            }
+        }
+        .href{
+            li{
+                transition: 300ms;
+                cursor: pointer;
+            }
+            li:hover{
+                transform: scale(1.1);
+                color: white;   
+            }
+        }
+    }
+}

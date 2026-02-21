@@ -147,3 +147,39 @@
         }
     }
 }
+
+.map{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.turs{
+    display: flex;
+    div{
+        height: 250px;
+        box-sizing: border-box;
+        background-size: cover !important;
+        background-position: center center;
+        color: transparent;
+        transition: 300ms;
+        cursor: pointer;
+        h2{
+            font-size: 20px;
+        }
+        p{
+            font-size: 14px;
+        }
+        > div{
+            padding: 15px 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        > div:hover{
+            background-color: rgba(0, 0, 0, 0.744);
+            color: white;
+
+        }
+    }
+}

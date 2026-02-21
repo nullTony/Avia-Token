@@ -268,6 +268,122 @@ header.sticky ul li:hover {
   line-height: 1.4;
 }
 
+.map {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.turs {
+  display: flex;
+}
+.turs div {
+  height: 250px;
+  box-sizing: border-box;
+  background-size: cover !important;
+  background-position: center center;
+  color: transparent;
+  transition: 300ms;
+  cursor: pointer;
+}
+.turs div h2 {
+  font-size: 20px;
+}
+.turs div p {
+  font-size: 14px;
+}
+.turs div > div {
+  padding: 15px 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.turs div > div:hover {
+  background-color: rgba(0, 0, 0, 0.744);
+  color: white;
+}
+
+footer {
+  display: flex;
+  margin-top: 50px;
+  justify-content: space-between;
+  background-color: rgb(16, 20, 43);
+  color: white;
+  box-sizing: border-box;
+  padding: 30px 80px;
+}
+footer .footerMainBox {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 30%;
+}
+footer .footerMainBox p {
+  font-size: 14px;
+}
+footer .footerMainBox > div {
+  display: flex;
+  gap: 8px;
+}
+@media (min-width: 1440px) {
+  footer .footerMainBox > div {
+    gap: 12px;
+  }
+}
+footer .footerMainBox > div a {
+  color: white;
+  text-decoration: none;
+}
+footer .footerMainBox > div a span {
+  display: flex;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+@media (min-width: 1440px) {
+  footer .footerMainBox > div a span {
+    padding: 10px;
+  }
+}
+footer .footerMainBox > div a span:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+footer .footerMainBox > div a span:hover svg {
+  transform: scale(1.1);
+}
+footer .footerMainBox > div a span:active {
+  transform: translateY(0);
+}
+footer .footerMainBox > div a span svg {
+  width: 18px;
+  height: 18px;
+}
+footer > div {
+  width: 15%;
+}
+footer > div > ul {
+  list-style: none;
+  line-height: 50px;
+}
+footer > div > ul li {
+  color: darkgray;
+}
+footer > div .href li {
+  transition: 300ms;
+  cursor: pointer;
+}
+footer > div .href li:hover {
+  transform: scale(1.1);
+  color: white;
+}
+
 * {
   padding: 0;
   margin: 0;
