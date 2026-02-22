@@ -472,13 +472,77 @@ header.sticky .lang_current {
 
 .map {
   display: flex;
+  flex-direction: column;
   width: 100%;
+  justify-content: space-between;
+  padding: 30px;
+  align-items: start;
+  gap: 20px;
+}
+.map iframe {
+  width: 100%;
+}
+.map > div {
+  padding: 20px;
+  border: 2px solid darkgray;
+  width: 100%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.map > div span {
+  color: #3f5baa;
+  font-weight: 600;
+}
+.map > div ul {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+}
+.map > div ul li {
+  color: #3b82f6;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 300ms;
+}
+.map > div ul li:hover {
+  transform: scale(1.2);
+}
+.map > div ul .dontWorkDay {
+  color: darkgray;
+  cursor: not-allowed;
+}
+.map > div ul .dontWorkDay:hover {
+  transform: none;
+}
+.map > div h1 {
+  line-height: 30px;
+}
+@media (min-width: 768px) {
+  .map {
+    flex-direction: row;
+  }
+  .map iframe {
+    width: 60%;
+  }
+  .map > div {
+    width: 38%;
+  }
+}
+
+.text {
+  display: flex;
   justify-content: center;
+  padding-top: 20px;
 }
 
 .turs {
-  display: flex;
+  box-sizing: border-box;
+  padding: 30px;
+  display: grid;
   overflow: hidden;
+  gap: 20px;
 }
 .turs div {
   height: 350px;
@@ -488,14 +552,17 @@ header.sticky .lang_current {
   color: transparent;
   transition: 300ms;
   cursor: pointer;
+  border-radius: 10px;
 }
-.turs div h2 {
-  font-size: 20px;
-}
-.turs div p {
-  font-size: 14px;
+.turs div h1 {
+  font-size: 40px;
+  transition: 300ms;
+  opacity: 0;
 }
 .turs div > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 15px 50px;
   display: flex;
   flex-direction: column;
@@ -504,6 +571,19 @@ header.sticky .lang_current {
 .turs div > div:hover {
   background-color: rgba(0, 0, 0, 0.744);
   color: white;
+}
+.turs div > div:hover h1 {
+  opacity: 100;
+}
+@media (min-width: 768px) {
+  .turs {
+    grid-template-columns: 1fr;
+  }
+}
+@media (min-width: 1024px) {
+  .turs {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .feature {
@@ -585,24 +665,82 @@ section.highlight-opacity {
   animation: opacityPulse 1.2s ease-in-out;
 }
 
-footer {
+.coments {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.coments .comentsBox {
+  border: 2px solid darkgray;
+  padding: 20px;
+  border-radius: 10px;
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.coments .comentsBox > div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.coments .comentsBox > div span {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgb(56, 32, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.coments .comentsBox > div h2 {
+  font-size: 20px;
+  font-weight: 300;
+}
+.coments .comentsBox p {
+  font-size: 15px;
+}
+.coments .comentsBox ul {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  color: gold;
+}
+@media (min-width: 768px) {
+  .coments {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 1024px) {
+  .coments {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+footer {
+  display: grid;
+  grid-template-columns: 1fr;
   justify-content: space-between;
   background-color: rgb(16, 20, 43);
   color: white;
   box-sizing: border-box;
   padding: 30px 80px;
+  gap: 20px;
+  background: url(/assets/Images/footerfon.jpg);
 }
 footer .footerMainBox {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  width: 30%;
+  width: 100%;
 }
 footer .footerMainBox p {
   font-size: 14px;
 }
 footer .footerMainBox > div {
+  width: 100% !important;
   display: flex;
   gap: 8px;
 }
@@ -647,22 +785,59 @@ footer .footerMainBox > div a span svg {
   height: 18px;
 }
 footer > div {
-  width: 15%;
+  width: 100%;
 }
 footer > div > ul {
   list-style: none;
   line-height: 50px;
+  width: 100%;
+}
+footer > div > ul a {
+  text-decoration: 0;
+  color: darkgrey;
 }
 footer > div > ul li {
   color: darkgray;
+  width: 100%;
 }
 footer > div .href li {
   transition: 300ms;
   cursor: pointer;
 }
 footer > div .href li:hover {
-  transform: scale(1.1);
+  transform: scale(1.1) !important;
+}
+footer > div .href li:hover a {
   color: white;
+}
+@media (min-width: 768px) {
+  footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  footer ul {
+    width: 100%;
+  }
+  footer ul li {
+    width: 100%;
+  }
+  footer > div {
+    width: 50%;
+  }
+}
+@media (min-width: 1024px) {
+  footer {
+    display: flex;
+  }
+  footer ul {
+    width: 100%;
+  }
+  footer ul li {
+    width: 100%;
+  }
+  footer > div {
+    width: 50%;
+  }
 }
 
 * {

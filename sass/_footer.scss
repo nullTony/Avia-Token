@@ -1,19 +1,24 @@
 footer{
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr;
     justify-content: space-between;
     background-color: rgb(16, 20, 43);
     color: white;
     box-sizing: border-box;
     padding: 30px 80px;
+    gap: 20px;
+    background: url(/assets/Images/footerfon.jpg);
+    // background-size: cover;
     .footerMainBox{
         display: flex;
         flex-direction: column;
         gap: 15px;
-        width: 30%;
+        width: 100%;
         p{
             font-size: 14px;
         }
         > div{
+            width: 100% !important;
             display: flex;
             gap: 8px;
 
@@ -63,12 +68,18 @@ footer{
         }
     }
     > div{
-        width: 15%;
+        width: 100%;
         > ul{
             list-style: none;
             line-height: 50px;
+            width: 100%;
+            a{
+                text-decoration: 0;
+                color: darkgrey;
+            }
             li{
                 color: darkgray;
+                width: 100%;
             }
         }
         .href{
@@ -77,9 +88,39 @@ footer{
                 cursor: pointer;
             }
             li:hover{
-                transform: scale(1.1);
-                color: white;   
+                transform: scale(1.1) !important;
+            }
+            li:hover a{
+                color: white;
             }
         }
     }
+
+    @media (min-width: 768px) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        ul{
+            width: 100%;
+            li{
+                width: 100%;
+            }
+        }
+        > div{
+            width: 50%;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        display: flex;
+        ul{
+            width: 100%;
+            li{
+                width: 100%;
+            }
+        }
+        > div{
+            width: 50%;
+        }
+    }
+
 }
