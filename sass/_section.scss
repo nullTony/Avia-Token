@@ -42,7 +42,7 @@
                 color: white;
 
                 @media (min-width: 1024px) {
-                    font-size: 56px;
+                    font-size: 36px;
                     line-height: 1.1;
                     margin-bottom: 20px;
                 }
@@ -54,7 +54,7 @@
                 word-spacing: normal;
 
                 @media (min-width: 1024px) {
-                    font-size: 20px;
+                    font-size: 18px;
                     word-spacing: 5px;
                 }
             }
@@ -140,7 +140,7 @@
                 }
 
                 p {
-                    font-size: 14px;
+                    font-size: 16px;
                     color: #555;
                     line-height: 1.4;
                 }
@@ -148,6 +148,43 @@
         }
     }
 }
+
+
+.partners {
+    width: 100%;
+    overflow: hidden;
+    padding: 40px 0;
+    background: #fff;
+    position: relative;
+    pointer-events: none; 
+
+    &-track {
+        display: flex;
+        align-items: center;
+        gap: 60px;
+        will-change: transform;
+    }
+
+    span {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            width: 180px;
+            height: 100px;
+            object-fit: contain;
+            filter: grayscale(100%) opacity(0.6);
+            transition: filter .3s ease;
+
+            &:hover {
+                filter: grayscale(0%) opacity(1);
+            }
+        }
+    }
+}
+
 .map{
     display: flex;
     width: 100%;
@@ -156,8 +193,9 @@
 
 .turs{
     display: flex;
+    overflow: hidden;
     div{
-        height: 250px;
+        height: 350px;
         box-sizing: border-box;
         background-size: cover !important;
         background-position: center center;
@@ -188,7 +226,7 @@
     gap: 30px;
     align-items: center;
     flex-direction: column;
-    padding: 50px 30px;
+    padding: 10px 30px 30px;
 
     h1 {
         font-size: 28px;
@@ -197,11 +235,6 @@
     }
 
     .card_con {
-        // display: flex;
-        // justify-content: space-between;
-        // align-items: center;
-        // flex-wrap: wrap;
-
         gap: 20px;
         display: grid;
 
@@ -255,5 +288,25 @@
         @media (min-width:1024px) {
             grid-template-columns: repeat(4, 1fr);
         }
+    }
+}
+
+@keyframes opacityPulse {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.4;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+section {
+    transition: opacity 0.3s ease;
+    
+    &.highlight-opacity {
+        animation: opacityPulse 1.2s ease-in-out;
     }
 }

@@ -24,7 +24,11 @@ body {
     display: flex;
     flex-direction: column;
     position: relative;
-    gap: 20px;
+
+    main {
+        display: flex;
+        flex-direction: column;
+    }
 
     @media (min-width: 1440px) {
         min-width: 1440px;
