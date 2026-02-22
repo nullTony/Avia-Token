@@ -24,12 +24,12 @@ header nav {
   position: relative;
 }
 header nav .logo_box h1 {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
 }
-@media (min-width: 1440px) {
+@media (min-width: 1024px) {
   header nav .logo_box h1 {
-    font-size: 30px;
+    font-size: 24px;
   }
 }
 header nav .desktop_menu {
@@ -133,7 +133,7 @@ header nav .social_group {
   align-items: center;
 }
 header nav .social_group #menuBtn {
-  margin-left: 15px;
+  margin-left: 0px;
   display: none;
   cursor: pointer;
 }
@@ -729,6 +729,8 @@ footer {
   padding: 30px 80px;
   gap: 20px;
   background: url(/assets/Images/footerfon.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 footer .footerMainBox {
   display: flex;
@@ -786,10 +788,15 @@ footer .footerMainBox > div a span svg {
 }
 footer > div {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 footer > div > ul {
   list-style: none;
-  line-height: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   width: 100%;
 }
 footer > div > ul a {
