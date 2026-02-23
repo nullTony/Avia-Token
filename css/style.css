@@ -482,11 +482,16 @@ header.sticky .lang_current {
 .map {
   display: flex;
   flex-direction: column;
-  width: 100%;
   justify-content: space-between;
   padding: 30px;
   align-items: start;
   gap: 20px;
+  padding: 10px 10px 20px;
+}
+@media (min-width: 768px) {
+  .map {
+    padding: 10px 30px 30px;
+  }
 }
 .map iframe {
   width: 100%;
@@ -544,16 +549,26 @@ header.sticky .lang_current {
   display: flex;
   justify-content: center;
   padding-top: 20px;
-  font-size: 12px;
   text-align: center;
+  font-size: 12px;
+}
+@media (min-width: 768px) {
+  .text {
+    font-size: 16px;
+  }
 }
 
 .turs {
   box-sizing: border-box;
-  padding: 30px;
   display: grid;
   overflow: hidden;
   gap: 20px;
+  padding: 10px 10px 20px;
+}
+@media (min-width: 768px) {
+  .turs {
+    padding: 10px 30px 30px;
+  }
 }
 .turs div {
   height: 350px;
@@ -602,7 +617,12 @@ header.sticky .lang_current {
   gap: 30px;
   align-items: center;
   flex-direction: column;
-  padding: 10px 30px 30px;
+  padding: 10px 10px 20px;
+}
+@media (min-width: 768px) {
+  .feature {
+    padding: 10px 30px 30px;
+  }
 }
 .feature h1 {
   font-size: 28px;

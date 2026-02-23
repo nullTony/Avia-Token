@@ -188,11 +188,17 @@
 .map{
     display: flex;
     flex-direction: column;
-    width: 100%;
     justify-content: space-between;
     padding: 30px;
     align-items: start;
     gap: 20px;
+
+    padding: 10px 10px 20px;
+
+    @media (min-width:768px) {
+        padding: 10px 30px 30px;
+    }
+
     iframe{
         width: 100%;
     }
@@ -248,16 +254,25 @@
     display: flex;
     justify-content: center;
     padding-top: 20px;
-    font-size: 12px;
     text-align: center;
+    font-size: 12px;
+
+    @media (min-width: 768px) {
+        font-size: 16px;
+    }
 }
 
 .turs{
     box-sizing: border-box;
-    padding: 30px;
     display: grid;
     overflow: hidden;
     gap: 20px;
+
+    padding: 10px 10px 20px;
+
+    @media (min-width:768px) {
+        padding: 10px 30px 30px;
+    }
     div{
         height: 350px;
         box-sizing: border-box;
@@ -303,7 +318,11 @@
     gap: 30px;
     align-items: center;
     flex-direction: column;
-    padding: 10px 30px 30px;
+    padding: 10px 10px 20px;
+
+    @media (min-width:768px) {
+        padding: 10px 30px 30px;
+    }
 
     h1 {
         font-size: 28px;
