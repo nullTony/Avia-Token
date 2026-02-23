@@ -544,6 +544,8 @@ header.sticky .lang_current {
   display: flex;
   justify-content: center;
   padding-top: 20px;
+  font-size: 12px;
+  text-align: center;
 }
 
 .turs {
