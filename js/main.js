@@ -1,97 +1,88 @@
-const header = document.getElementById('header');
-const social = document.getElementById('social_sticky');
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        header.classList.add('sticky');
-        social.classList.add('sticky');
-    } else {
-        header.classList.remove('sticky');
-        social.classList.remove('sticky');
-    }
-});
+document.addEventListener("DOMContentLoaded", () => {
+    const header = document.getElementById('header');
+    const social = document.getElementById('social_sticky');
+    const track = document.querySelector('.partners-track');
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const langWrapper = document.getElementById("langWrapper");
+    const langCurrent = langWrapper?.querySelector(".lang_current");
+    const langItems = langWrapper?.querySelectorAll(".lang_list li");
 
-const track = document.querySelector('.partners-track');
-
-const trackContent = track.innerHTML;
-track.innerHTML += trackContent; 
-
-let scrollLeft = 0;
-const speed = 0.5;
-
-function step() {
-    scrollLeft += speed;
-    
-    if (scrollLeft >= track.scrollWidth / 2) {
-        scrollLeft = 0;
-    }
-    
-    track.style.transform = `translateX(-${scrollLeft}px)`;
-    requestAnimationFrame(step);
-}
-
-step();
-
-const menuBtn = document.getElementById("menuBtn");
-const mobileMenu = document.getElementById("mobileMenu");
-
-menuBtn.addEventListener("click", () => {
-    mobileMenu.classList.toggle("active");
-});
-
-const menuLinks = mobileMenu.querySelectorAll("li");
-menuLinks.forEach(link => {
-    link.addEventListener("click", () => {
-        mobileMenu.classList.remove("active");
+    window.addEventListener('scroll', () => {
+        const isSticky = window.scrollY > 50;
+        header?.classList.toggle('sticky', isSticky);
+        social?.classList.toggle('sticky', isSticky);
     });
-});
 
-const langWrapper = document.getElementById('langWrapper');
+    if (track) {
+        track.innerHTML += track.innerHTML; 
+        let scrollLeft = 0;
+        const step = () => {
+            scrollLeft += 0.5;
+            if (scrollLeft >= track.scrollWidth / 2) scrollLeft = 0;
+            track.style.transform = `translateX(-${scrollLeft}px)`;
+            requestAnimationFrame(step);
+        };
+        step();
+    }
 
-langWrapper.addEventListener('click', (e) => {
-    e.stopPropagation();
-    langWrapper.classList.toggle('open');
-});
-
-document.addEventListener('click', () => {
-    langWrapper.classList.remove('open');
-});
-
-const langItems = langWrapper.querySelectorAll('.lang_list li');
-langItems.forEach(item => {
-    item.addEventListener('click', () => {
-        const selectedLang = item.getAttribute('data-lang');
-        console.log('Переключаем на:', selectedLang);
-        langWrapper.classList.remove('open');
+    menuBtn?.addEventListener("click", () => mobileMenu?.classList.toggle("active"));
+    mobileMenu?.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => mobileMenu.classList.remove("active"));
     });
-});
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
+    const langFiles = { ru: "index.html", uz: "index-uz.html", en: "index-en.html" };
+    const pathParts = window.location.pathname.split('/');
+    const currentFile = pathParts.pop() || "index.html";
+    const isInSrc = pathParts.includes('src');
+    const currentLang = Object.keys(langFiles).find(k => langFiles[k] === currentFile) || "ru";
 
-        if (targetElement) {
-            document.getElementById("mobileMenu").classList.remove("active");
-
-            const headerHeight = document.getElementById("header").offsetHeight;
-            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
-
-            targetElement.classList.remove('highlight-opacity');
-            
-            setTimeout(() => {
-                targetElement.classList.add('highlight-opacity');
-            }, 500);
-
-            setTimeout(() => {
-                targetElement.classList.remove('highlight-opacity');
-            }, 1700);
+    const updateLangUI = (lang) => {
+        const flags = { ru: "ru", uz: "uz", en: "gb" };
+        const texts = { ru: "RU", uz: "UZB", en: "EN" };
+        if (langCurrent) {
+            const img = langCurrent.querySelector("img");
+            const span = langCurrent.querySelector("span");
+            if (img) img.src = `https://flagcdn.com/w20/${flags[lang]}.png`;
+            if (span) span.textContent = texts[lang];
         }
+    };
+    updateLangUI(currentLang);
+
+    langCurrent?.addEventListener("click", (e) => {
+        e.stopPropagation();
+        langWrapper.classList.toggle("open");
+    });
+
+    langItems?.forEach(item => {
+        item.addEventListener("click", () => {
+            const newLang = item.getAttribute("data-lang");
+            if (newLang && newLang !== currentLang) {
+                let targetUrl = langFiles[newLang];
+                if (newLang === 'ru') {
+                    targetUrl = isInSrc ? "../index.html" : "index.html";
+                } else {
+                    targetUrl = isInSrc ? targetUrl : `./src/${targetUrl}`;
+                }
+                window.location.href = targetUrl;
+            }
+        });
+    });
+
+    document.addEventListener("click", () => langWrapper?.classList.remove("open"));
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                e.preventDefault();
+                mobileMenu?.classList.remove("active");
+                const offset = header ? header.offsetHeight : 0;
+                window.scrollTo({
+                    top: target.getBoundingClientRect().top + window.pageYOffset - offset,
+                    behavior: 'smooth'
+                });
+            }
+        });
     });
 });
