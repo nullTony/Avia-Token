@@ -344,7 +344,7 @@ header.sticky .lang_current {
   }
 }
 .hero_section .center .hero_content h2 {
-  font-size: 38px;
+  font-size: 26px;
   line-height: 1.05;
   color: white;
   font-weight: 900;
@@ -396,6 +396,7 @@ header.sticky .lang_current {
   height: auto;
   object-fit: contain;
   opacity: 0.95;
+  padding: 0 10px;
 }
 .hero_section .center .airplane_box .cloude {
   position: absolute;
