@@ -410,18 +410,18 @@ header.sticky .lang_current {
   letter-spacing: 2px;
   color: #ffffff;
   text-transform: uppercase;
-  background: rgba(255, 255, 255, 0.1);
+  background: linear-gradient(135deg, #ff8a00 0%, #ff4d4d 100%);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 50px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 153, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(255, 77, 77, 0.3), 0 0 15px rgba(255, 138, 0, 0.2);
   transition: all 0.3s ease;
   animation: buttonFloat 4s ease-in-out infinite;
 }
 .hero_section .center .airplane_box > span button:hover {
-  background: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 15px rgba(0, 153, 255, 0.3);
+  background: linear-gradient(135deg, #ff9d26 0%, #ff6666 100%);
+  box-shadow: 0 12px 40px rgba(255, 77, 77, 0.5), 0 0 20px rgba(255, 138, 0, 0.4);
   transform: scale(1.05);
 }
 @media (min-width: 1024px) {
