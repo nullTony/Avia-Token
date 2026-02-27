@@ -37,6 +37,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const isInSrc = pathParts.includes('src');
     const currentLang = Object.keys(langFiles).find(k => langFiles[k] === currentFile) || "ru";
 
+    const savedLang = localStorage.getItem("selectedLang");
+
+    if (savedLang && savedLang !== currentLang) {
+        let targetUrl = langFiles[savedLang];
+        if (savedLang === 'ru') {
+            targetUrl = isInSrc ? "../index.html" : "index.html";
+        } else {
+            targetUrl = isInSrc ? targetUrl : `./src/${targetUrl}`;
+        }
+        if (currentFile !== langFiles[savedLang]) {
+            window.location.href = targetUrl;
+            return;
+        }
+    }
+
     const updateLangUI = (lang) => {
         const flags = { ru: "ru", uz: "uz", en: "gb" };
         const texts = { ru: "RU", uz: "UZB", en: "EN" };
@@ -51,13 +66,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     langCurrent?.addEventListener("click", (e) => {
         e.stopPropagation();
-        langWrapper.classList.toggle("open");
+        langWrapper?.classList.toggle("open");
     });
 
     langItems?.forEach(item => {
         item.addEventListener("click", () => {
             const newLang = item.getAttribute("data-lang");
             if (newLang && newLang !== currentLang) {
+                localStorage.setItem("selectedLang", newLang);
                 let targetUrl = langFiles[newLang];
                 if (newLang === 'ru') {
                     targetUrl = isInSrc ? "../index.html" : "index.html";
